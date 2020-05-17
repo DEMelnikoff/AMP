@@ -9,7 +9,15 @@
 	</head>
 	<body></body>
 	<script>
-	
+
+    /* retrieve identifying info */
+    jsPsych.data.addProperties({
+      Subject: jsPsych.data.getURLVariable('subject'),
+      AMPnum: jsPsych.data.getURLVariable('number'),
+      StartDate: jsPsych.data.getURLVariable('date'),
+      StartTime: jsPsych.data.getURLVariable('time'),
+    });
+
 		/* define timeline */
 		var timeline = [];
 
@@ -154,8 +162,15 @@
   	}
   	timeline.push(test_trial);
 
+    /* define conclusion */
+    var instructions1 = {
+      type: "html-keyboard-response",
+      stimulus: "<div style='width: 850px; text-align: left'><p>The second Social Processing Task. You may close this window and return to the survey</p>"+
+      "<p>As a reminder, you will see pairs of pictures flashed one after the other. The first picture shows a person, and the second shows a Chinese character. Your job is to judge whether each person is a pleasant individual or an unpleasant individual. Of course, there are no right or wrong answers. Just report your intuition as to whether each person is a pleasant or unpleasant individual.</p></div>",
+    }
+
 		jsPsych.init({
-			timeline: timeline
+			timeline: timeline,
 		})
 	</script>
 </html>

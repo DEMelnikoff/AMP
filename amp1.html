@@ -10,6 +10,14 @@
 	<body></body>
 	<script>
 	
+    /* retrieve identifying info */
+    jsPsych.data.addProperties({
+      Subject: jsPsych.data.getURLVariable('subject'),
+      AMPnum: jsPsych.data.getURLVariable('number'),
+      StartDate: jsPsych.data.getURLVariable('date'),
+      StartTime: jsPsych.data.getURLVariable('time'),
+    });
+
 		/* define timeline */
 		var timeline = [];
 
