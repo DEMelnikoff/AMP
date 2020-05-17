@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AMP</title>
+		<script src="jspsych-6.1.0/jspsych.js"></script>
+		<script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+  		<script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+		<link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+	</head>
+	<body></body>
+	<script>
+	
+		/* define timeline */
+		var timeline = [];
+
+		/* define welcome message */
+		var welcome = {
+			type: "html-keyboard-response",
+			stimulus: "Welcome to the second Social Processing Task. Press any key to begin."
+		};
+		timeline.push(welcome)
+
+		/* define instructions */
+		var instructions1 = {
+			type: "html-keyboard-response",
+			stimulus: "<div style='width: 850px; text-align: left'><p>Now you will complete the second Social Processing Task.</p>"+
+      "<p>As a reminder, you will see pairs of pictures flashed one after the other. The first picture shows a person, and the second shows a Chinese character. Your job is to judge whether each person is a pleasant individual or an unpleasant individual. Of course, there are no right or wrong answers. Just report your intuition as to whether each person is a pleasant or unpleasant individual.</p></div>",
+		}
+
+    var instructions2 = {
+      type: "html-keyboard-response",
+      stimulus: "<div style='width: 850px; text-align: left'><p>Begin the second Social Processing Task when you are ready. Again, your task is to judge whether the people are more pleasant individuals or less pleasant individuals than average by pressing either the 'E' or 'I' key.</p></div>",
+    }
+
+		timeline.push(instructions1, instructions2)
+
+		/* define test stimuli */
+		var num = [];
+		for (var i = 1; i <= 60; i++) {
+   		num.push(i);
+   	}
+   	var random_num = jsPsych.randomization.shuffle(num);
+   	var test_stimuli = [
+			{prime: "stim/Control1.jpg", target: "stim/pic"+random_num[0]+".jpg"},
+      {prime: "stim/Control2.jpg", target: "stim/pic"+random_num[1]+".jpg"},
+      {prime: "stim/Control3.jpg", target: "stim/pic"+random_num[2]+".jpg"},
+      {prime: "stim/Control4.jpg", target: "stim/pic"+random_num[3]+".jpg"},
+      {prime: "stim/Control5.jpg", target: "stim/pic"+random_num[4]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[5]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[6]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[7]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[8]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[9]+".jpg"},
+			{prime: "stim/Control1.jpg", target: "stim/pic"+random_num[10]+".jpg"},
+      {prime: "stim/Control2.jpg", target: "stim/pic"+random_num[11]+".jpg"},
+      {prime: "stim/Control3.jpg", target: "stim/pic"+random_num[12]+".jpg"},
+      {prime: "stim/Control4.jpg", target: "stim/pic"+random_num[13]+".jpg"},
+      {prime: "stim/Control5.jpg", target: "stim/pic"+random_num[14]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[15]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[16]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[17]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[18]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[19]+".jpg"},
+			{prime: "stim/Control1.jpg", target: "stim/pic"+random_num[20]+".jpg"},
+      {prime: "stim/Control2.jpg", target: "stim/pic"+random_num[21]+".jpg"},
+      {prime: "stim/Control3.jpg", target: "stim/pic"+random_num[22]+".jpg"},
+      {prime: "stim/Control4.jpg", target: "stim/pic"+random_num[23]+".jpg"},
+      {prime: "stim/Control5.jpg", target: "stim/pic"+random_num[24]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[25]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[26]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[27]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[28]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[29]+".jpg"},
+			{prime: "stim/Control1.jpg", target: "stim/pic"+random_num[30]+".jpg"},
+      {prime: "stim/Control2.jpg", target: "stim/pic"+random_num[31]+".jpg"},
+      {prime: "stim/Control3.jpg", target: "stim/pic"+random_num[32]+".jpg"},
+      {prime: "stim/Control4.jpg", target: "stim/pic"+random_num[33]+".jpg"},
+      {prime: "stim/Control5.jpg", target: "stim/pic"+random_num[34]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[35]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[36]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[37]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[38]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[39]+".jpg"},
+			{prime: "stim/Control1.jpg", target: "stim/pic"+random_num[40]+".jpg"},
+      {prime: "stim/Control2.jpg", target: "stim/pic"+random_num[41]+".jpg"},
+      {prime: "stim/Control3.jpg", target: "stim/pic"+random_num[42]+".jpg"},
+      {prime: "stim/Control4.jpg", target: "stim/pic"+random_num[43]+".jpg"},
+      {prime: "stim/Control5.jpg", target: "stim/pic"+random_num[44]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[45]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[46]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[47]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[48]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[49]+".jpg"},
+			{prime: "stim/Control1.jpg", target: "stim/pic"+random_num[50]+".jpg"},
+      {prime: "stim/Control2.jpg", target: "stim/pic"+random_num[51]+".jpg"},
+      {prime: "stim/Control3.jpg", target: "stim/pic"+random_num[52]+".jpg"},
+      {prime: "stim/Control4.jpg", target: "stim/pic"+random_num[53]+".jpg"},
+      {prime: "stim/Control5.jpg", target: "stim/pic"+random_num[54]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[55]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[56]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[57]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[58]+".jpg"},
+      {prime: "stim/Francis.jpg", target: "stim/pic"+random_num[59]+".jpg"},
+    ];
+
+  	/* define iti */
+    var iti = {
+      type: 'image-keyboard-response',
+      stimulus: "stim/ITI.jpg",
+      stimulus_height: 220,
+      stimulus_width: 220,
+      choices: jsPsych.NO_KEYS,
+      trial_duration: 250,
+      prompt: "<div><pre><br>E = Pleasant                              I = Unpleasant</pre></div>",
+    }
+
+    /* define prime event */
+    var prime = {
+    	type: 'image-keyboard-response',
+    	stimulus: jsPsych.timelineVariable('prime'),
+      stimulus_height: 220,
+      stimulus_width: 220,
+    	choices: jsPsych.NO_KEYS,
+    	trial_duration: 75,
+      prompt: "<div><pre><br>E = Pleasant                              I = Unpleasant</pre></div>",
+    }
+
+  	/* define target event */
+    var target = {
+    	type: 'image-keyboard-response',
+    	stimulus: jsPsych.timelineVariable('target'),
+      stimulus_height: 220,
+      stimulus_width: 220,
+    	choices: jsPsych.NO_KEYS,
+    	trial_duration: 100,
+      prompt: "<div><pre><br>E = Pleasant                              I = Unpleasant</pre></div>",
+    }
+
+    /* define response event */
+    var mask = {
+    	type: "image-keyboard-response",
+    	stimulus: "stim/Mask.jpg",
+      stimulus_height: 220,
+      stimulus_width: 220,
+    	choices: ['e', 'i'],
+      prompt: "<div><pre><br>E = Pleasant                              I = Unpleasant</pre></div>",
+    }
+
+    /* define test trial */
+    var test_trial = {
+    		timeline: [iti, prime, target, mask],
+    		timeline_variables: test_stimuli,
+    		randomize_order: true,
+  	}
+  	timeline.push(test_trial);
+
+		jsPsych.init({
+			timeline: timeline
+		})
+	</script>
+</html>
