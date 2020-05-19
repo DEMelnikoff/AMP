@@ -162,24 +162,18 @@
   	}
   	timeline.push(test_trial);
 
-    /* define conclusion */
-    var instructions1 = {
-      type: "html-keyboard-response",
-      stimulus: "<div style='width: 850px; text-align: left'><p>The second Social Processing Task. You may close this window and return to the survey</p>"+
-      "<p>As a reminder, you will see pairs of pictures flashed one after the other. The first picture shows a person, and the second shows a Chinese character. Your job is to judge whether each person is a pleasant individual or an unpleasant individual. Of course, there are no right or wrong answers. Just report your intuition as to whether each person is a pleasant or unpleasant individual.</p></div>",
-    }
 
     function saveData(name, data){
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+      xhr.open('POST', 'write_data.php');
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.send(JSON.stringify({filename: name, filedata: data}));
     }
 
     jsPsych.init({
-      timeline: timeline
+      timeline: timeline,
       on_finish: function(){ saveData("AMP2"+Subject, jsPsych.data.get().csv()); }
     })
-    
+
 	</script>
 </html>
