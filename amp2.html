@@ -169,8 +169,17 @@
       "<p>As a reminder, you will see pairs of pictures flashed one after the other. The first picture shows a person, and the second shows a Chinese character. Your job is to judge whether each person is a pleasant individual or an unpleasant individual. Of course, there are no right or wrong answers. Just report your intuition as to whether each person is a pleasant or unpleasant individual.</p></div>",
     }
 
-		jsPsych.init({
-			timeline: timeline,
-		})
+    function saveData(name, data){
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({filename: name, filedata: data}));
+    }
+
+    jsPsych.init({
+      timeline: timeline
+      on_finish: function(){ saveData("AMP2"+Subject, jsPsych.data.get().csv()); }
+    })
+    
 	</script>
 </html>

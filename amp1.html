@@ -79,7 +79,6 @@
     ];
 
     /* define practice priming event */
-
     var practice_iti = {
       type: 'image-keyboard-response',
       stimulus: "stim/ITI.jpg",
@@ -249,8 +248,18 @@
   	}
   	timeline.push(test_trial);
 
+
+    function saveData(name, data){
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'write_data.php');
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({filename: name, filedata: data}));
+    }
+
 		jsPsych.init({
 			timeline: timeline
+      on_finish: function(){ saveData("AMP1"+Subject, jsPsych.data.get().csv()); }
 		})
+
 	</script>
 </html>
